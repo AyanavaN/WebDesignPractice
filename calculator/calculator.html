@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1">
+    <br>
+    <button onclick="change_number_text(this)">7</button>
+    <button onclick="change_number_text(this)">8</button>
+    <button onclick="change_number_text(this)">9</button>
+    <button onclick="select_operator(this)">*</button>
+    <button onclick="select_operator(this)">Ce</button>
+    <br>
+    <button onclick="change_number_text(this)">4</button>
+    <button onclick="change_number_text(this)">5</button>
+    <button onclick="change_number_text(this)">6</button>
+    <button onclick="select_operator(this)">-</button>
+    <button onclick="select_operator(this)">/</button>
+    <br>
+    <button onclick="change_number_text(this)">1</button>
+    <button onclick="change_number_text(this)">2</button>
+    <button onclick="change_number_text(this)">3</button>
+    <button onclick="select_operator(this)">+</button>
+    <button onclick="result()">=</button>
+    <br>
+    <button onclick="change_number_text(this)">0</button>
+
+</body>
+<script>
+    let first_num,second_num,operator_char,result_num;
+    function change_number_text(id)
+    {
+        
+        // console.log(id.innerHTML);
+        document.getElementById("text1").value+=id.innerHTML;
+    }
+    function select_operator(opr)
+    {
+        first_num=document.getElementById("text1").value;
+        document.getElementById("text1").value="";
+        // console.log(opr.innerHTML);
+        operator_char=opr.innerHTML;
+        // console.log(first_num);
+    }
+    function result()
+    {
+        second_num=document.getElementById("text1").value;
+        document.getElementById("text1").value="";
+        if(operator_char=="*"){
+            result_num=parseFloat(first_num)*parseFloat(second_num);
+             document.getElementById("text1").value=result_num;
+        }
+        if(operator_char=="Ce"){
+            result_num=0;
+             document.getElementById("text1").value=result_num;
+        }
+        if(operator_char=="-"){
+            result_num=parseFloat(first_num)-parseFloat(second_num);
+             document.getElementById("text1").value=result_num;
+        }
+        if(operator_char=="/"){
+            result_num=parseFloat(first_num)/parseFloat(second_num);
+             document.getElementById("text1").value=result_num;
+        }
+        if(operator_char=="+"){
+            result_num=parseFloat(first_num)+parseFloat(second_num);
+             document.getElementById("text1").value=result_num;
+        }
+    }
+</script>
+</html>
